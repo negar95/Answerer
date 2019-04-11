@@ -10,8 +10,8 @@ import UIKit
 
 class ResetPasswordVC: UIViewController, UserDelegate, UITextFieldDelegate {
 
-    @IBOutlet weak var password2TF: UITextField!
-    @IBOutlet weak var password1TF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var phoneTF: UITextField!
     var userHelper = UserHelper()
 
     @IBOutlet weak var indic: UIActivityIndicatorView!
@@ -20,6 +20,9 @@ class ResetPasswordVC: UIViewController, UserDelegate, UITextFieldDelegate {
         super.viewDidLoad()
         self.indic.isHidden = true
         userHelper.delegate = self
+
+        passwordTF.delegate = self
+        phoneTF.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -30,19 +33,32 @@ class ResetPasswordVC: UIViewController, UserDelegate, UITextFieldDelegate {
     }
 
     @IBAction func resetPressed(_ sender: Any) {
-        if Connectivity.isConnectedToInternet(){
-            if password1TF.text != nil && password1TF.text?.count == 11 && password2TF != nil {
+        if validationCheck(){
+            if Connectivity.isConnectedToInternet(){
                 self.indic.isHidden = false
-                userHelper.rsetPass(phone: password1TF.text!, password: password2TF.text!)
-            } else {
-                ViewHelper.showToastMessage(message: "All fields required")
+                userHelper.rsetPass(phone: phoneTF.text!, password: passwordTF.text!)
+            }else{
+                let alert = UIAlertController(title: "No connection!", message: "Please make sure that your phone is connected to internet.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok!", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
-        }else{
-            let alert = UIAlertController(title: "No connection!", message: "Please make sure that your phone is connected to internet.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok!", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
         }
     }
+
+    func validationCheck() -> Bool {
+        var valid = true
+        if phoneTF.text == nil || passwordTF.text == nil{
+            ViewHelper.showToastMessage(message: "All fields are required")
+            valid = false
+        }else{
+            if !ValidationHelper.validateCellPhone(phone: phoneTF.text!){
+                ViewHelper.showToastMessage(message: "Please enter a valid phone")
+                valid = false
+            }
+        }
+        return valid
+    }
+    
     func userLoggedIn() {
         self.indic.isHidden = true
         self.indic.stopAnimating()
@@ -58,8 +74,8 @@ class ResetPasswordVC: UIViewController, UserDelegate, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == password1TF {
-            password2TF.becomeFirstResponder()
+        if textField == phoneTF {
+            passwordTF.becomeFirstResponder()
         } else {
             dismissKeyboard()
         }

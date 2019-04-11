@@ -46,6 +46,6 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Enable Camera to take photos.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Enable Mic access to send your voice</string>
+	<string>Enable Mic access to send your voice.</string>
 </dict>
 </plist>

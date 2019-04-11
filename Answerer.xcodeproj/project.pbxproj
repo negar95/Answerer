@@ -35,6 +35,7 @@
 		57D663312125AF1A00551D14 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D663302125AF1A00551D14 /* Chat.swift */; };
 		57F747E2212E02F1003EEE8D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F747E1212E02F1003EEE8D /* ChatViewController.swift */; };
 		840B38A921D4FD020028BF60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 840B38A821D4FD010028BF60 /* GoogleService-Info.plist */; };
+		84573972225FA19B0082AA1D /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84573971225FA19B0082AA1D /* ValidationHelper.swift */; };
 		84A01DE9207CE80F00155842 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A01DE8207CE80F00155842 /* AppDelegate.swift */; };
 		84A01DEB207CE80F00155842 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A01DEA207CE80F00155842 /* ViewController.swift */; };
 		84A01DEE207CE80F00155842 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A01DEC207CE80F00155842 /* Main.storyboard */; };
@@ -100,6 +101,7 @@
 		57F747E1212E02F1003EEE8D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		824788DD0D6CDE9541DABDD7 /* Pods-AnswererUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnswererUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnswererUITests/Pods-AnswererUITests.release.xcconfig"; sourceTree = "<group>"; };
 		840B38A821D4FD010028BF60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84573971225FA19B0082AA1D /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 		84A01DE5207CE80F00155842 /* Answerer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Answerer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A01DE8207CE80F00155842 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A01DEA207CE80F00155842 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				57A3D0C0207D2C0E003A84AB /* URLHelper.swift */,
 				57535E54217C6F0B00BA7C6A /* CoreDataHelper.swift */,
 				57725EBD217D90A60066F803 /* SegueHelper.swift */,
+				84573971225FA19B0082AA1D /* ValidationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -372,7 +375,7 @@
 				TargetAttributes = {
 					84A01DE4207CE80F00155842 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -544,6 +547,7 @@
 				57A3D0C1207D2C0E003A84AB /* URLHelper.swift in Sources */,
 				18B9E14121B98061000F1B4F /* AcceptOrDeclineViewController.swift in Sources */,
 				577091BD21304D8700A15272 /* ChatTableViewCell.swift in Sources */,
+				84573972225FA19B0082AA1D /* ValidationHelper.swift in Sources */,
 				57D663312125AF1A00551D14 /* Chat.swift in Sources */,
 				57A3D0C5207D34D4003A84AB /* AppTools.swift in Sources */,
 				57A3D0BB207D2B90003A84AB /* RequestHelper.swift in Sources */,
@@ -730,12 +734,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Answerer/Answerer.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kourosh Zarandooz (79PK9ZJH2C)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2Z93C3477W;
 				INFOPLIST_FILE = Answerer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kod.Answerer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = KODAnswererDevelopmentProfile;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -747,12 +754,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Answerer/Answerer.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kourosh Zarandooz (2Z93C3477W)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2Z93C3477W;
 				INFOPLIST_FILE = Answerer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kod.Answerer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = KODAnswererDistributionProfile;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

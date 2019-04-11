@@ -98,7 +98,7 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "conversationCell", for: indexPath) as! ConversationTableViewCell
         let conversation = conversations[indexPath.row]
-        cell.idOfSender.text = conversation.name
+        cell.idOfSender.text = conversation.studentName
         cell.SomePartOfTheLastMessage.text = conversation.date
         cell.conversationId = conversation.conversationId
         cell.isEnd = conversation.isEnd

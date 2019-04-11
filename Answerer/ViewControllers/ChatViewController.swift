@@ -110,6 +110,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func endChat(_ sender: Any) {
         if Connectivity.isConnectedToInternet(){
             chatHelper.sendChat(isTeacher: true, message: "", filePath: nil, type: 4, images: nil)
+            let chatVC = SegueHelper.createViewController(storyboardName: "Chat", viewControllerId: "ChatConversationViewController")
+            let nv = UINavigationController()
+            nv.viewControllers = [chatVC]
+            self.present(nv, animated: true, completion: nil)
+            
         }else{
             let alert = UIAlertController(title: "No connection!", message: "Please make sure that your phone is connected to internet.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok!", style: .cancel, handler: nil))
@@ -207,8 +212,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.messageInputAreaVC.waitingView.isHidden = true
         if isSucceded {
             chatTable.reloadData()
-        }
-        else {
+        } else {
             ViewHelper.showToastMessage(message: "Error, Please check the internet and try again")
         }
         if chatTable.numberOfRows(inSection: 0) > 0 {

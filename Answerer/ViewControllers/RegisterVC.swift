@@ -25,6 +25,13 @@ class RegisterVC: UIViewController, UserDelegate, UITextFieldDelegate {
         super.viewDidLoad()
         self.indic.isHidden = true
         userHelper.delegate = self
+
+        usernameTF.delegate = self
+        emailTF.delegate = self
+        phoneTF.delegate = self
+        password1TF.delegate = self
+        password2TF.delegate = self
+
         self.hideKeyboardWhenTappedAround()
     }
 
@@ -34,23 +41,43 @@ class RegisterVC: UIViewController, UserDelegate, UITextFieldDelegate {
     }
 
     @IBAction func registerPressed(_ sender: Any) {
-        if Connectivity.isConnectedToInternet(){
-            if phoneTF.text?.count == 11 && phoneTF.text != nil && emailTF.text != nil && usernameTF.text != nil {
-                if password1TF.text != nil && password2TF.text != nil && password1TF.text == password2TF.text {
+        if validationCheck(){
+            if Connectivity.isConnectedToInternet(){
                     userHelper.signup(userName: usernameTF.text!, password: password1TF.text!, phone: phoneTF.text!, email: emailTF.text!)
-                }
-                else {
-                    ViewHelper.showToastMessage(message: "Passwords should match")
-                }
-            } else {
-                ViewHelper.showToastMessage(message: "All fields are required")
+            }else{
+                let alert = UIAlertController(title: "No connection!", message: "Please make sure that your phone is connected to internet.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok!", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
-        }else{
-            let alert = UIAlertController(title: "No connection!", message: "Please make sure that your phone is connected to internet.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok!", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
         }
 
+    }
+
+    func validationCheck() -> Bool {
+        var valid = true
+
+        if phoneTF.text == nil || emailTF.text == nil || usernameTF.text == nil || password1TF.text == nil || password1TF.text == nil {
+            ViewHelper.showToastMessage(message: "All fields are required")
+            valid = false
+        }else{
+            if password1TF.text != password2TF.text {
+                ViewHelper.showToastMessage(message: "Passwords should match")
+                valid = false
+            }
+            if !ValidationHelper.validateName(name: usernameTF.text!){
+                ViewHelper.showToastMessage(message: "Please enter a valid name")
+                valid = false
+            }
+            if !ValidationHelper.validateEmail(email: emailTF.text!){
+                ViewHelper.showToastMessage(message: "Please enter a valid email")
+                valid = false
+            }
+            if !ValidationHelper.validateCellPhone(phone: phoneTF.text!){
+                ViewHelper.showToastMessage(message: "Please enter a valid phone")
+                valid = false
+            }
+        }
+        return valid
     }
 
     func userLoggedIn() {
