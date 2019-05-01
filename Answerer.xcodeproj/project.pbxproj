@@ -43,6 +43,7 @@
 		84A01DF6207CE80F00155842 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A01DF4207CE80F00155842 /* LaunchScreen.storyboard */; };
 		84A01E01207CE81000155842 /* AnswererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A01E00207CE81000155842 /* AnswererTests.swift */; };
 		84A01E0C207CE81000155842 /* AnswererUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A01E0B207CE81000155842 /* AnswererUITests.swift */; };
+		84B2A1B622734D98005EAB17 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B2A1B522734D98005EAB17 /* Default-568h@2x.png */; };
 		84FFED93207CEE0C00FB3A81 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFED92207CEE0C00FB3A81 /* LoginVC.swift */; };
 		84FFED95207CEE1E00FB3A81 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFED94207CEE1E00FB3A81 /* RegisterVC.swift */; };
 		84FFED99207CF6E000FB3A81 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFED98207CF6E000FB3A81 /* ResetPasswordVC.swift */; };
@@ -115,6 +116,7 @@
 		84A01E07207CE81000155842 /* AnswererUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnswererUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A01E0B207CE81000155842 /* AnswererUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswererUITests.swift; sourceTree = "<group>"; };
 		84A01E0D207CE81000155842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B2A1B522734D98005EAB17 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		84F9FCDE21D594D6007761EA /* Answerer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Answerer.entitlements; sourceTree = "<group>"; };
 		84FFED92207CEE0C00FB3A81 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		84FFED94207CEE1E00FB3A81 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		84A01DDC207CE80F00155842 = {
 			isa = PBXGroup;
 			children = (
+				84B2A1B522734D98005EAB17 /* Default-568h@2x.png */,
 				84A01DE7207CE80F00155842 /* Answerer */,
 				84A01DFF207CE81000155842 /* AnswererTests */,
 				84A01E0A207CE81000155842 /* AnswererUITests */,
@@ -276,15 +279,15 @@
 			isa = PBXGroup;
 			children = (
 				18B420F221CC6446002B01F9 /* AudioPlayerController.swift */,
-				18B420F121CC6446002B01F9 /* ChatAudioFileManager.swift */,
 				57A3D0B8207D2B82003A84AB /* ViewHelper.swift */,
-				57A3D0BA207D2B90003A84AB /* RequestHelper.swift */,
 				57A3D0BC207D2BA4003A84AB /* UserHelper.swift */,
 				57A3D0BE207D2BAF003A84AB /* FontHelper.swift */,
+				18B420F121CC6446002B01F9 /* ChatAudioFileManager.swift */,
 				578682912126D2AD0001633A /* ChatHelper.swift */,
 				57A3D0C0207D2C0E003A84AB /* URLHelper.swift */,
 				57535E54217C6F0B00BA7C6A /* CoreDataHelper.swift */,
 				57725EBD217D90A60066F803 /* SegueHelper.swift */,
+				57A3D0BA207D2B90003A84AB /* RequestHelper.swift */,
 				84573971225FA19B0082AA1D /* ValidationHelper.swift */,
 			);
 			path = Helpers;
@@ -370,7 +373,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = negar;
 				TargetAttributes = {
 					84A01DE4207CE80F00155842 = {
@@ -424,6 +427,7 @@
 				18D3B68F21A86F3C00ED56D3 /* MessageInputAreaViewController.xib in Resources */,
 				18D3B69221A86F3C00ED56D3 /* VoiceRecorderViewController.xib in Resources */,
 				572D27C221159C7500DBBA37 /* Chat.storyboard in Resources */,
+				84B2A1B622734D98005EAB17 /* Default-568h@2x.png in Resources */,
 				84A01DEE207CE80F00155842 /* Main.storyboard in Resources */,
 				840B38A921D4FD020028BF60 /* GoogleService-Info.plist in Resources */,
 			);
@@ -635,6 +639,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -642,6 +647,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -692,6 +698,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -699,6 +706,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

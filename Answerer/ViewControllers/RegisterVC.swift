@@ -96,7 +96,9 @@ class RegisterVC: UIViewController, UserDelegate, UITextFieldDelegate {
         let chatVC = SegueHelper.createViewController(storyboardName: "Chat", viewControllerId: "ChatConversationViewController")
         let nv = UINavigationController()
         nv.viewControllers = [chatVC]
-        present(nv, animated: true, completion: nil) }
+        present(nv, animated: true, completion: nil)
+
+    }
 
     func userCouldNotLoggedIn(error: String) {
         self.indic.isHidden = true
